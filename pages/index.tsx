@@ -47,8 +47,8 @@ const App = () => {
         // @ts-ignore
 
         ref={audioElem}
-        // @ts-ignore
         // eslint-disable-next-line react/no-unknown-property
+        // @ts-ignore
         onTimeUpdate={onPlaying}
       />
       <Player
