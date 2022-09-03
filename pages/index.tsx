@@ -15,18 +15,23 @@ const App = () => {
 
   useEffect(() => {
     if (isplaying) {
+      // @ts-ignore
       audioElem.current.play();
     } else {
+      // @ts-ignore
       audioElem.current.pause();
     }
   }, [isplaying]);
 
   const onPlaying = () => {
+    // @ts-ignore
     const duration = audioElem.current.duration;
+    // @ts-ignore
     const ct = audioElem.current.currentTime;
 
     setCurrentSong({
       ...currentSong,
+      // @ts-ignore
       progress: (ct / duration) * 100,
       length: duration,
     });
@@ -37,9 +42,18 @@ const App = () => {
       <Head>
         <title>Clean Music Player</title>
       </Head>
-      <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
+      <audio
+        src={currentSong.url}
+        // @ts-ignore
+
+        ref={audioElem}
+        // @ts-ignore
+        // eslint-disable-next-line react/no-unknown-property
+        onTimeUpdate={onPlaying}
+      />
       <Player
         songs={songs}
+        // @ts-ignore
         setSongs={setSongs}
         isplaying={isplaying}
         setisplaying={setisplaying}
