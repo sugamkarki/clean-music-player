@@ -4,6 +4,7 @@ import Player from "../components/Player/Player";
 import { songsdata } from "../components/audios";
 
 import { useRef, useState, useEffect } from "react";
+import Head from "next/head";
 
 const App = () => {
   const [songs, setSongs] = useState(songsdata);
@@ -33,6 +34,9 @@ const App = () => {
 
   return (
     <div className="App">
+      <Head>
+        <title>Clean Music Player</title>
+      </Head>
       <audio src={currentSong.url} ref={audioElem} onTimeUpdate={onPlaying} />
       <Player
         songs={songs}
